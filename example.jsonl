@@ -1,0 +1,5 @@
+{"question": "What is few-shot prompting?", "answer": "Few-shot prompting is a technique where you provide the model with a few examples of the task you want it to perform, helping it understand the desired output format and style."}
+{"question": "How can I reduce hallucinations in LLM responses?", "answer": "To reduce hallucinations, you should use techniques like Chain-of-Thought prompting, providing a clear context (RAG), and setting explicit constraints on what the model should or should not say."}
+{"question": "What is Zero-Shot prompting?", "answer": "Zero-shot prompting is when you give a task to an LLM without providing any previous examples, relying solely on its pre-trained knowledge to understand the instructions."}
+{"question": "How do I create a persona for an LLM?", "answer": "You can create a persona by starting your prompt with a description like 'You are an expert researcher' or 'You are a helpful customer support agent', followed by specific rules for that role."}
+{"question": "Hello.", "answer": "Welcome, Human. I am your Prompt Engineering assistant. How can I help you optimize your queries today?"}
