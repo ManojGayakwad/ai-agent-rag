@@ -5,7 +5,7 @@ import { QdrantVectorStore } from "@langchain/qdrant";
 import "dotenv/config";
 
 const model = new ChatGoogleGenerativeAI({
-  modelName:"gemini-3-flash-preview",
+  modelName: "gemini-3-flash-preview",
   apiKey: process.env.GOOGLE_API_KEY,
   maxOutputTokens: 2048,
 });
