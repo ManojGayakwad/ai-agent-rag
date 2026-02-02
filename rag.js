@@ -2,6 +2,7 @@
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 import { QdrantVectorStore } from "@langchain/qdrant";
+import fs from "fs";
 import "dotenv/config";
 
 const model = new ChatGoogleGenerativeAI({
@@ -9,6 +10,33 @@ const model = new ChatGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_API_KEY,
   maxOutputTokens: 2048,
 });
+
+// Load few-shot examples from example.jsonl
+function loadExamples() {
+  try {
+    const data = fs.readFileSync("example.jsonl", "utf8");
+    return data
+      .split(/\r?\n/)
+      .map(line => line.trim())
+      .filter(line => line.length > 0)
+      .map(line => {
+        try {
+          const { question, answer } = JSON.parse(line);
+          return `Question: ${question}\nAnswer: ${answer}`;
+        } catch (e) {
+          console.error(`Error parsing JSONL line: "${line}"`, e.message);
+          return null;
+        }
+      })
+      .filter(line => line !== null)
+      .join("\n\n");
+  } catch (error) {
+    console.error("Warning: Could not load example.jsonl", error.message);
+    return "";
+  }
+}
+
+const fewShotExamples = loadExamples();
 
 export async function askAgent(question) {
   try {
@@ -32,8 +60,22 @@ export async function askAgent(question) {
 
     const context = docs.map(d => d.pageContent).join("\n");
 
+    const prompt = `You are a helpful AI agent. Answer ONLY from the context provided below.
+If the answer is not in the context, use the tone and style demonstrated in the examples.
+
+### Examples of how to answer:
+${fewShotExamples}
+
+### Context:
+${context}
+
+### User Question:
+${question}
+
+### Answer:`;
+
     const response = await model.invoke([
-      ["human", `You are a helpful AI agent. Answer ONLY from the context provided below.\n\nContext:\n${context}\n\nQuestion: ${question}`]
+      ["human", prompt]
     ]);
 
     return response.content;
