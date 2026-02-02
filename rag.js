@@ -6,7 +6,7 @@ import fs from "fs";
 import "dotenv/config";
 
 const model = new ChatGoogleGenerativeAI({
-  modelName: "gemini-3-flash-preview",
+  modelName:process.env.MODEL_NAME,
   apiKey: process.env.GOOGLE_API_KEY,
   maxOutputTokens: 2048,
 });

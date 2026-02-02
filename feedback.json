@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "2026-02-02T10:41:13.053Z",
+    "question": "What is Few-Shot prompting?",
+    "answer": "Few-shot learning is a method that allows models to make accurate predictions with only a few examples, thereby reducing data collection and computation efforts and costs. This technique is used when a task is complex and the model needs to see examples to perform well.",
+    "score": 1,
+    "comments": "Very helpful and accurate!"
+  },
+  {
+    "timestamp": "2026-02-02T10:45:15.496Z",
+    "question": "What is Zero-Shot prompting?",
+    "answer": "Zero-shot prompting is the preferred method for most cases because it is faster and easier. It involves giving a task to an LLM without providing any specific examples for the instruction, relying on the model's untapped potential for reasoning. Using best practices like context, coherence, and persona, or adding phrases like “Let’s think step by step,” can help achieve better results.",
+    "score": 1,
+    "comments": "Very helpful and accurate!"
+  },
+  {
+    "timestamp": "2026-02-02T10:48:18.342Z",
+    "question": "How can I reduce hallucinations in LLM responses?",
+    "answer": "To reduce hallucinations and inaccurate responses, you should double-check, cross-verify, and fact-check the information obtained from the LLM. Additionally, using precise and specific language in your prompts can help guide the model toward generating more accurate responses, and starting a new chat thread can help if the model gets stuck in a loop or provides irrelevant information.",
+    "score": 0,
+    "comments": "Not helpful"
+  },
+  {
+    "timestamp": "2026-02-02T10:50:21.972Z",
+    "question": "How can I reduce hallucinations in LLM responses?",
+    "answer": "To reduce hallucinations, you should double-check, cross-verify, and fact-check the information obtained from LLMs, use precise and specific language in your prompts, and consider opening a new chat context if the model provides irrelevant or repetitive responses.",
+    "score": 0,
+    "comments": "I want helpful answer with example"
+  },
+  {
+    "timestamp": "2026-02-02T10:54:08.713Z",
+    "question": "How can I reduce hallucinations in LLM responses?",
+    "answer": "To reduce hallucinations, you should use techniques like Chain-of-Thought prompting, providing a clear context (RAG), and setting explicit constraints on what the model should or should not say.",
+    "score": 1,
+    "comments": "Very helpful"
+  }
+]
